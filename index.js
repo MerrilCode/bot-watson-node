@@ -20,11 +20,11 @@ app.use(bodyParser.urlencoded({
 //set static path
 
 app.use(express.static(path.join(__dirname,'public')));
-
 var person = {
 	name: 'Jeff',
 	age: 30
 }
+
 
 app.get('/',function(req,res){
 	res.json(person);
