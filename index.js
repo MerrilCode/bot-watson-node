@@ -31,7 +31,7 @@ app.get('/',function(req,res){
 
 	res.render('index',{
 		title: 'customers',
-	},'watson_result');
+	},watson_result);
 });
 app.listen(port,hostname,function(){
 	console.log('server started on port 3000...');
