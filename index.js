@@ -5,12 +5,21 @@ const port = 3000;
 const hostname = "172.31.20.173";
 var app = express();
 
-var logger = function (req,res,next) {
-	console.log('Logging...');
-	next();
-}
+// var logger = function (req,res,next) {
+// 	console.log('Logging...');
+// 	next();
+// }
+//app.use(logger);
 
-app.use(logger);
+//Body Parser Middleware
+app.use(bodyParser.json());
+app.user(bodyParser.urlencoded({
+	extended: false
+}));
+
+//set static path
+
+app.use(express.static(path.join(__dirname,'public')));
 
 app.get('/',function(req,res){
 	res.send('hello world');
