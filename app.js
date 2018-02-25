@@ -4,7 +4,7 @@ var http = require('http');
 const fs = require('fs');
 
 const port = 3000;
-const hostname = "merrilmathew.org";
+const hostname = "172.31.20.173";
 fs.readFile('index.html',(err,html)=>{
 	if(err){
 		throw err;
