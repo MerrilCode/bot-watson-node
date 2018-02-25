@@ -4,7 +4,7 @@ var path = require('path');
 const port = 3000;
 const hostname = "172.31.20.173";
 var app = express();
-const watson_result;
+const watson_result = 'watson';
 
 // var logger = function (req,res,next) {
 // 	console.log('Logging...');
