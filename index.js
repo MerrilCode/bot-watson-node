@@ -17,17 +17,14 @@ app.use(bodyParser.urlencoded({
 	extended: false
 }));
 
+// View engine
+app.set('view engine','ejs');
+app.set('views',path.join(__dirname,'views'));
+
 //set static path
-
 app.use(express.static(path.join(__dirname,'public')));
-var person = {
-	name: 'Jeff',
-	age: 30
-}
-
-
 app.get('/',function(req,res){
-	res.json(person);
+	res.render('index');
 });
 app.listen(port,hostname,function(){
 	console.log('server started on port 3000...');
