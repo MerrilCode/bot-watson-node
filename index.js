@@ -4,7 +4,7 @@ var path = require('path');
 const port = 3000;
 const hostname = "172.31.20.173";
 var app = express();
-const watson_result='watson';
+const watson_result;
 
 // var logger = function (req,res,next) {
 // 	console.log('Logging...');
@@ -32,7 +32,6 @@ app.get('/',function(req,res){
 	res.render('index',{
 		title: 'customers',
 		watson_result: watson_result
-
 	});
 });
 app.listen(port,hostname,function(){
