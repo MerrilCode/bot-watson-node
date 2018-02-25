@@ -24,7 +24,10 @@ app.set('views',path.join(__dirname,'views'));
 //set static path
 app.use(express.static(path.join(__dirname,'public')));
 app.get('/',function(req,res){
-	res.render('index');
+
+	res.render('index',{
+		title: 'customers'
+	});
 });
 app.listen(port,hostname,function(){
 	console.log('server started on port 3000...');
