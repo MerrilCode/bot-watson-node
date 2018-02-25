@@ -25,6 +25,18 @@ app.set('views',path.join(__dirname,'views'));
 //set static path
 app.use(express.static(path.join(__dirname,'public')));
 
+
+app.get('/',function(req,res){
+
+	res.render('index',{
+		title: 'customers',
+		watson_result: watson_result
+	});
+});
+app.listen(port,hostname,function(){
+	console.log('server started on port 3000...');
+});
+
 var ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
 
 var tone_analyzer = new ToneAnalyzerV3({
@@ -52,23 +64,3 @@ tone_analyzer.tone(params,function(error, response){
 
 });
 
-app.get('/',function(req,res){
-
-	res.render('index',{
-		title: 'customers',
-		watson_result: watson_result
-	});
-});
-app.listen(port,hostname,function(){
-	console.log('server started on port 3000...');
-});
-
-app.get('/',function(req,res){
-
-	res.render('index',{
-		title: 'customers',
-	});
-});
-app.listen(port,hostname,function(){
-	console.log('server started on port 3000...');
-});
