@@ -21,8 +21,13 @@ app.use(bodyParser.urlencoded({
 
 app.use(express.static(path.join(__dirname,'public')));
 
+var person = {
+	name: 'Jeff',
+	age: 30
+}
+
 app.get('/',function(req,res){
-	res.send('hello world');
+	res.json(person);
 });
 app.listen(port,hostname,function(){
 	console.log('server started on port 3000...');
