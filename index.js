@@ -13,7 +13,7 @@ var app = express();
 
 //Body Parser Middleware
 app.use(bodyParser.json());
-app.user(bodyParser.urlencoded({
+app.use(bodyParser.urlencoded({
 	extended: false
 }));
 
