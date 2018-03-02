@@ -1,3 +1,22 @@
-<h1> Hello from EJS </h1>
-<h3><%= title %></h3>
-<p><%= watson_result %></p>
+<% include partials/header %>
+	<h1>Add Customer</h1>
+	<form method="POST" action="/users/add">
+		<label> First Name </label>
+		<input type="text" name="first_name">
+		<label> Last Name </label>
+		<input type="text" name="last_name">
+		<label> Email</label>
+		<input type="text" name="email">
+		<input type="submit" value="Submit">
+	</form>
+
+	<h1> Hello from EJS </h1>
+	<h3><%= title %></h3>
+	<p><%= %></p>
+	<ul>
+	<% users.forEach(function(user){ %>
+		<li><%= user.first_name %></li>
+	<% }) %>
+	</ul>
+
+<% include partials/footer %>

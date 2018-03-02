@@ -1,9 +1,11 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
+var expressValidator = require('express-validator');
 const port = 3000;
+const hostname = "127.0.0.1";
 var app = express();
-const watson_result = 'watson';
+var watson_result = {};
 
 // var logger = function (req,res,next) {
 // 	console.log('Logging...');
@@ -24,14 +26,37 @@ app.set('views',path.join(__dirname,'views'));
 //set static path
 app.use(express.static(path.join(__dirname,'public')));
 
-
+var users = [
+	{
+		first_name: 'Merril',
+		last_name: 'Mathew',
+		email: 'mmathew@spartaglobal.com'
+	},
+	{
+		first_name: 'John',
+		last_name: 'George',
+		email: 'ggeorge@spartaglobal.com'
+	}
+]
 app.get('/',function(req,res){
 
 	res.render('index',{
 		title: 'customers',
-		watson_result: watson_result
+		watson_result: watson_result,
+		users: users
 	});
 });
+
+app.post('/users/add',function(req,res){
+	
+	var newUser = {
+		first_name: req.body.first_name,
+		last_name: req.body.last_name,
+		email: req.body.body.email
+	}
+	console.log(newUser);
+});
+
 app.listen(port,hostname,function(){
 	console.log('server started on port 3000...');
 });
